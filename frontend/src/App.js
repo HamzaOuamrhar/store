@@ -1,15 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Product from "./pages/Product";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/product/:slug" element={<Product/>}/>
+          <Route path="/product/:slug" element={<ProductDetail/>}/>
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
