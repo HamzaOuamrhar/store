@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Spinner from "../components/Spinner";
+import { Store } from "../Store";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,6 +39,10 @@ function ProductDetail() {
     };
     fetchData();
   }, [slug]);
+  const {state, dispatch: ctxDispatch} = useContext(Store)
+  const addToCartHandler = () => {
+    ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity: 1}})
+  }
   return (
     <div>
       {loading ? (
@@ -55,6 +60,7 @@ function ProductDetail() {
           ) : (
             <div>Unavailable</div>
           )}
+          <button onClick={addToCartHandler}>ADD TO CART</button>
         </div>
       )}
     </div>
