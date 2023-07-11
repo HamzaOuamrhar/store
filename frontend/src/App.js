@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
+import Signin from "./pages/Signin";
 import { Store } from "./Store";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/product/:slug" element={<ProductDetail/>}/>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/signin" element={<Signin/>} />
         </Routes>
       </div>
     </BrowserRouter>
