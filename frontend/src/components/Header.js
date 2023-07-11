@@ -14,7 +14,7 @@ function Header({cart}) {
           width: "fit-content"
         }}
       >
-        {cart.cartItems.length}
+        {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
       </p></Link>
     </div>
   );
