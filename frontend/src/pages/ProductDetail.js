@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Spinner from "../components/Spinner";
 import { Store } from "../Store";
@@ -20,6 +20,7 @@ const reducer = (state, action) => {
 };
 
 function ProductDetail() {
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
@@ -39,22 +40,23 @@ function ProductDetail() {
     };
     fetchData();
   }, [slug]);
-  const {state, dispatch: ctxDispatch} = useContext(Store)
-  const {cart} = state
-  const addToCartHandler = async() => {
-    const existItem = cart.cartItems.find((x) => x._id === product._id)
-    const quantity = existItem ? existItem.quantity + 1 : 1
-    const { data } = await axios.get(`/api/products/${product._id}`)
-    if(data.countInStock < quantity){
-      window.alert("Sorry. Product is out of stock!")
-      return
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart } = state;
+  const addToCartHandler = async () => {
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    if (data.countInStock < quantity) {
+      window.alert("Sorry. Product is out of stock!");
+      return;
     }
-    ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity}})
-  }
+    ctxDispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    navigate("/cart");
+  };
   return (
     <div>
       {loading ? (
-        <Spinner/>
+        <Spinner />
       ) : error ? (
         <div>{error}</div>
       ) : (

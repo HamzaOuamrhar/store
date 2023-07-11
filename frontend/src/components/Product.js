@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Rating from "./Rating";
 import { Link } from "react-router-dom";
+import { Store } from "../Store";
+import axios from "axios";
 
 function Product(props) {
   const { product } = props;
