@@ -43,17 +43,17 @@ function Cart() {
             <div className="cartitem" key={item._id}>
               <p>{item.name}</p>
               <i
-                class="fa-solid fa-circle-minus"
+                className="fa-solid fa-circle-minus"
                 onClick={() => updateCartHandler(item, item.quantity - 1)}
                 disabled={item.quantity === 1}
               ></i>
               <p>{item.quantity}</p>
               <i
-                class="fa-solid fa-circle-plus"
+                className="fa-solid fa-circle-plus"
                 onClick={() => updateCartHandler(item, item.quantity + 1)}
                 disabled={item.quantity === item.countInStock}
               ></i>
-              <i class="fa-solid fa-trash"
+              <i className="fa-solid fa-trash"
               onClick={() => removeItemHandler(item)}
               ></i>
             </div>

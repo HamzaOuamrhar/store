@@ -5,39 +5,39 @@ function Rating(props) {
   return (
     <span>
       {rating >= 1 ? (
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
       ) : rating >= 0.5 ? (
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i className="fa-solid fa-star-half-stroke"></i>
       ) : (
-        <i class="fa-regular fa-star"></i>
+        <i className="fa-regular fa-star"></i>
       )}
       {rating >= 2 ? (
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
       ) : rating >= 1.5 ? (
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i className="fa-solid fa-star-half-stroke"></i>
       ) : (
-        <i class="fa-regular fa-star"></i>
+        <i className="fa-regular fa-star"></i>
       )}
       {rating >= 3 ? (
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
       ) : rating >= 2.5 ? (
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i className="fa-solid fa-star-half-stroke"></i>
       ) : (
-        <i class="fa-regular fa-star"></i>
+        <i className="fa-regular fa-star"></i>
       )}
       {rating >= 4 ? (
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
       ) : rating >= 3.5 ? (
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i className="fa-solid fa-star-half-stroke"></i>
       ) : (
-        <i class="fa-regular fa-star"></i>
+        <i className="fa-regular fa-star"></i>
       )}
       {rating >= 5 ? (
-        <i class="fa-solid fa-star"></i>
+        <i className="fa-solid fa-star"></i>
       ) : rating >= 4.5 ? (
-        <i class="fa-solid fa-star-half-stroke"></i>
+        <i className="fa-solid fa-star-half-stroke"></i>
       ) : (
-        <i class="fa-regular fa-star"></i>
+        <i className="fa-regular fa-star"></i>
       )}
       <span> {numReviews} Reviews</span>
     </span>

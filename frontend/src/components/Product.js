@@ -8,7 +8,7 @@ function Product(props) {
   const { product } = props;
   return (
     <div className="product">
-      <Link to={`/product/${product.slug}`}>
+      <Link to={`/products/slug/${product.slug}`}>
         <div>{product.name}</div>
       </Link>
       <div>{product.price}</div>

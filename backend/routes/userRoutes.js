@@ -1,15 +1,16 @@
-import  compareSync  from 'bcryptjs'
+import  bcrypt  from 'bcryptjs'
 import express from 'express'
 import User from '../models/UserModel.js'
 import { generateToken } from '../utils.js'
 import expressAsyncHandler from 'express-async-handler'
+import jwt from 'jsonwebtoken';
 
 const userRouter = express.Router()
 
 userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
-  const user = User.findOne({email: req.body.email})
+  const user = await User.findOne({email: req.body.email})
   if(user){
-    if(bcrypt.compareSync(req.body.email, user.email)){
+    if(bcrypt.compareSync(req.body.password, user.password)){
       res.send({
         _id: user._id,
         name: user.name,
