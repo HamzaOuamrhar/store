@@ -10,6 +10,7 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Shipping from "./pages/Shipping";
 import Signup from "./pages/Signup";
+import Payment from "./pages/Payment";
 
 function App() {
   const {state} = useContext(Store)
@@ -26,6 +27,7 @@ function App() {
           <Route path="/signin" element={<Signin/>} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/shipping" element={<Shipping/>} />
+          <Route path="/payment" element={<Payment/>} />
         </Routes>
       </div>
     </BrowserRouter>
