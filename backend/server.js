@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 
 dotenv.config()
 mongoose.connect(process.env.MONGODB_URI).then(() => {
@@ -22,6 +23,7 @@ app.use(express.urlencoded({extended: true}))
 app.use('/api/seed', seedRouter)
 app.use('/api/products', productRouter)
 app.use('/api/users', userRouter)
+app.use('/api/orders', orderRouter)
 
 
 const port = process.env.PORT || 5000

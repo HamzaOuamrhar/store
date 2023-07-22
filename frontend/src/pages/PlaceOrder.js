@@ -1,8 +1,27 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import { Store } from "../Store";
 import { useNavigate } from "react-router-dom";
+import Axios from 'axios'
+import {toast} from 'react-toastify'
+import Spinner from '../components/Spinner'
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CREATE_REQUEST":
+      return { ...state, loading: true };
+    case "CREATE_SUCCESS":
+      return { ...state, loading: false };
+    case "CREATE_FAIL":
+      return { ...state, loading: false };
+    default:
+      return state;
+  }
+};
 
 function PlaceOrder() {
+  const [{ loading }, dispatch] = useReducer(reducer, {
+    loading: false,
+  });
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
@@ -16,7 +35,31 @@ function PlaceOrder() {
   const shippingPrice = itemsPrice > 100 ? round2(0) : round2(10);
   const taxPrice = round2(0.15 * itemsPrice);
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
-  const placeOrderHandler = async () => {};
+  const placeOrderHandler = async () => {
+    try{
+      dispatch({type: 'CREATE_REQUEST'})
+      const {data} = await Axios.post('/api/orders',{
+        orderItems: cartItems,
+        paymentMethod: paymentMethod,
+        shippingAddress: shippingAddress,
+        itemsPrice: itemsPrice,
+        shippingPrice: shippingPrice,
+        taxPrice: taxPrice,
+        totalPrice: totalPrice
+      }, {
+        headers:{
+          authorization: `Bearer ${userInfo.token}`
+        }
+      })
+      localStorage.removeItem(cartItems)
+      dispatch({type: "CREATE_SUCCESS"})
+      ctxDispatch({type: "CART_CLEAR"})
+      navigate(`/order/${data.order._id}`)
+    }catch(err){
+      dispatch({type: "CREATE_FAIL"})
+      toast.error("Order placed with error!")
+    }
+  };
 
   useEffect(() => {
     if (!paymentMethod) {
@@ -59,6 +102,7 @@ function PlaceOrder() {
           Place Order
         </button>
       </div>
+      {loading && <Spinner></Spinner>}
     </div>
   );
 }
