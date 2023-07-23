@@ -33,13 +33,14 @@ function Order() {
   const navigate = useNavigate();
   const params = useParams();
   const { id: orderId } = params;
-  const [{ loading, error, order, successPay, loadingPay }, dispatch] = useReducer(reducer, {
-    loading: true,
-    order: {},
-    error: "",
-    successPay: false,
-    loadingPay: false
-  });
+  const [{ loading, error, order, successPay, loadingPay }, dispatch] =
+    useReducer(reducer, {
+      loading: true,
+      order: {},
+      error: "",
+      successPay: false,
+      loadingPay: false,
+    });
 
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
@@ -97,8 +98,8 @@ function Order() {
     }
     if (!order._id || successPay || (order._id && order._id !== orderId)) {
       fetchOrder();
-      if(successPay){
-         dispatch({type: "PAY_RESET"})
+      if (successPay) {
+        dispatch({ type: "PAY_RESET" });
       }
     } else {
       const loadPaypalScript = async () => {
@@ -156,14 +157,14 @@ function Order() {
               <Spinner />
             ) : (
               <div>
-                <PayPalButtons>
+                <PayPalButtons
                   createOrder={createOrder}
                   onApprove={onApprove}
                   onError={onError}
-                </PayPalButtons>
+                ></PayPalButtons>
               </div>
             )}
-            {loadingPay && <Spinner/>}
+            {loadingPay && <Spinner />}
           </div>
         )}
       </div>
