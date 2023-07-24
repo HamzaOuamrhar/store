@@ -1,3 +1,4 @@
+import './style.css'
 import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
@@ -15,6 +16,7 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
 import Profile from "./pages/Profile";
+import Sidebar from './components/Sidebar';
 
 function App() {
   const {state} = useContext(Store)
@@ -24,6 +26,7 @@ function App() {
       <div className="App">
         <ToastContainer position="top-center" limit={1} />
         <Header cart={cart}/>
+        <Sidebar />
         <Routes>
           <Route path="/products/slug/:slug" element={<ProductDetail/>}/>
           <Route path="/" element={<Home />} />
