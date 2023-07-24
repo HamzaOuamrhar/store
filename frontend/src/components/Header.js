@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Store } from "../Store";
+import SearchBox from "./SearchBox";
 
 function Header({ cart }) {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -27,6 +28,7 @@ function Header({ cart }) {
           {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
         </p>
       </Link>
+      <SearchBox/>
       <div>
         {userInfo ? (
           <>
