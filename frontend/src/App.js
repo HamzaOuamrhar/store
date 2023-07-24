@@ -13,6 +13,7 @@ import Signup from "./pages/Signup";
 import Payment from "./pages/Payment";
 import PlaceOrder from "./pages/PlaceOrder";
 import Order from "./pages/Order";
+import OrderHistory from "./pages/OrderHistory";
 
 function App() {
   const {state} = useContext(Store)
@@ -32,6 +33,7 @@ function App() {
           <Route path="/payment" element={<Payment/>} />
           <Route path="/placeorder" element={<PlaceOrder/>}/>
           <Route path="/order/:id" element={<Order/>}/>
+          <Route path="/orderhistory" element={<OrderHistory/>}/>
         </Routes>
       </div>
     </BrowserRouter>

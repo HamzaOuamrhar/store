@@ -8,8 +8,8 @@ function Header({ cart }) {
   const signoutHandler = () => {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
-    localStorage.removeItem('shippingAddress')
-    localStorage.removeItem('paymentMethod')
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
   };
   return (
     <div>
@@ -31,9 +31,14 @@ function Header({ cart }) {
           <>
             <div>{userInfo.name}</div>{" "}
             <button onClick={signoutHandler}>Signout</button>
+            <Link to={"/orderhistory"}>
+              <button>Order History</button>
+            </Link>
           </>
         ) : (
-          <Link to={'/signin'}><button>Sign In</button></Link>
+          <Link to={"/signin"}>
+            <button>Sign In</button>
+          </Link>
         )}
       </div>
     </div>
