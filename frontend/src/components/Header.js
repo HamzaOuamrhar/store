@@ -10,6 +10,7 @@ function Header({ cart }) {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem("paymentMethod");
+    window.location.href = '/signin'
   };
   return (
     <div>
@@ -33,6 +34,9 @@ function Header({ cart }) {
             <button onClick={signoutHandler}>Signout</button>
             <Link to={"/orderhistory"}>
               <button>Order History</button>
+            </Link>
+            <Link to={"/profile"}>
+              <button>Profile</button>
             </Link>
           </>
         ) : (
