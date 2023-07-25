@@ -17,6 +17,7 @@ import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
 import Profile from "./pages/Profile";
 import Sidebar from './components/Sidebar';
+import SearchPage from './pages/SearchPage';
 
 function App() {
   const {state} = useContext(Store)
@@ -31,6 +32,7 @@ function App() {
           <Route path="/products/slug/:slug" element={<ProductDetail/>}/>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/signin" element={<Signin/>} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/profile" element={<Profile/>} />

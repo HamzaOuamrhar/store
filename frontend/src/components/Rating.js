@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Rating(props) {
-  const {rating, numReviews} = props
+  const { rating, numReviews, caption } = props;
   return (
     <span>
       {rating >= 1 ? (
@@ -39,9 +39,13 @@ function Rating(props) {
       ) : (
         <i className="fa-regular fa-star"></i>
       )}
-      <span> {numReviews} Reviews</span>
+      {caption ? (
+        <span>{caption}</span>
+      ) : (
+        <span>{" " + numReviews + " reviews"}</span>
+      )}
     </span>
-  )
+  );
 }
 
-export default Rating
+export default Rating;
