@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Axios from 'axios'
 import {toast} from 'react-toastify'
 import Spinner from '../components/Spinner'
+import {Helmet} from 'react-helmet-async'
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -68,6 +69,9 @@ function PlaceOrder() {
   }, [paymentMethod, navigate]);
   return (
     <div>
+      <Helmet>
+        <title>Place Order</title>
+      </Helmet>
       <h1>Shipping</h1>
       <div>
         <span>name: {shippingAddress.fullName}</span>

@@ -1,11 +1,63 @@
-.sidebaropen{
+// ********************************************* //
+
+$mycolor: green;
+
+$theme: "dark";
+
+:root {
+  --main-color: red;
+}
+
+.test {
+  color: var(--main-color);
+  background-color: $mycolor;
+  @if $theme == "dark" {
+    background-color: black;
+    color: white;
+  } @else {
+    background-color: white;
+    color: black;
+  }
+}
+
+@mixin breakpoints($point) {
+  @if $point == small {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (min-width: 577) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+
+.test {
+  @include breakpoints(small) {
+    font-size: 1rem;
+  }
+  @include breakpoints(medium) {
+    font-size: 2rem;
+  }
+  @include breakpoints(large) {
+    font-size: 3rem;
+  }
+}
+
+// ********************************************* //
+
+.sidebaropen {
   left: 0;
 }
 
-.sidebarclose{
+.sidebarclose {
   left: -300px;
 }
 
-.text-bold{
+.text-bold {
   font-weight: bold;
 }

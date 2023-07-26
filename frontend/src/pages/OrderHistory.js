@@ -48,6 +48,9 @@ export default function OrderHistoryScreen() {
   }, [userInfo]);
   return (
     <div>
+      <Helmet>
+        <title>Order History</title>
+      </Helmet>
       {loading ? (
         <Spinner />
       ) : (

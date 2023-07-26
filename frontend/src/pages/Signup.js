@@ -52,7 +52,7 @@ function Signup() {
   return (
     <div>
       <Helmet>
-        <title>Sign In</title>
+        <title>Sign Up</title>
       </Helmet>
       <form action="" onSubmit={submitHandler}>
         <input

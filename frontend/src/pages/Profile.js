@@ -2,6 +2,8 @@ import React, { useContext, useReducer, useState } from "react";
 import { Store } from "../Store";
 import {toast} from 'react-toastify'
 import axios from "axios";
+import {Helmet} from 'react-helmet-async'
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -48,6 +50,9 @@ function Profile() {
   };
   return (
     <div>
+      <Helmet>
+        <title>Profile</title>
+      </Helmet>
       <h1>Profile</h1>
       <form onSubmit={submitHandler}>
         <input
