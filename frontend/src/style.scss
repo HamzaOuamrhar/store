@@ -1,23 +1,13 @@
-// ********************************************* //
-
-$mycolor: green;
-
-$theme: "dark";
-
-:root {
-  --main-color: red;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-.test {
-  color: var(--main-color);
-  background-color: $mycolor;
-  @if $theme == "dark" {
-    background-color: black;
-    color: white;
-  } @else {
-    background-color: white;
-    color: black;
-  }
+:root {
+  --main-color: rgb(0, 10, 146);
+  --second-color: rgb(0, 13, 192);
 }
 
 @mixin breakpoints($point) {
@@ -26,38 +16,135 @@ $theme: "dark";
       @content;
     }
   } @else if $point == medium {
-    @media (min-width: 577) and (max-width: 1199px) {
+    @media (min-width: 577px) and (max-width: 1000px) {
       @content;
     }
   } @else if $point == large {
-    @media (min-width: 1200px) {
+    @media (min-width: 1001px) {
       @content;
     }
   }
-}
-
-.test {
-  @include breakpoints(small) {
-    font-size: 1rem;
-  }
-  @include breakpoints(medium) {
-    font-size: 2rem;
-  }
-  @include breakpoints(large) {
-    font-size: 3rem;
-  }
-}
-
-// ********************************************* //
-
-.sidebaropen {
-  left: 0;
-}
-
-.sidebarclose {
-  left: -300px;
 }
 
 .text-bold {
   font-weight: bold;
+}
+
+.spinner{
+  color: var(--second-color);
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.searchbox {
+  input {
+    width: 50vw;
+    padding: 7px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    @include breakpoints(small){
+      display: none;
+    }
+    @include breakpoints(medium){
+      display: none;
+    }
+  }
+  button {
+    display: none;
+      @include breakpoints(small){
+        display: block;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      @include breakpoints(medium){
+        display: block;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  background-color: var(--main-color);
+  color: white;
+  @include breakpoints(small){
+    padding: 0 5%;
+  }
+  a {
+    text-decoration: none;
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+  }
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      position: relative;
+      a {
+        color: white;
+        display: block;
+        padding: 20px;
+        text-decoration: none;
+        text-align: center;
+        font-size: 1rem;
+      }
+      ul.dropdown {
+        width: fit-content;
+        position: absolute;
+        z-index: 999;
+        display: none;
+        background-color: var(--main-color);
+        padding: 10px;
+        li {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+        }
+        li.dropdown-list:hover {
+          background-color: var(--second-color);
+          border-radius: 15px;
+        }
+      }
+    }
+    li.mobile-icon{
+      display: none;
+      @include breakpoints(small){
+        display: inline-block;
+      }
+      @include breakpoints(medium){
+        display: inline-block;
+      }
+    }
+    li:hover {
+      ul.dropdown {
+        display: block;
+        @include breakpoints(small){
+          display: none;
+        }
+        @include breakpoints(medium){
+          display: none;
+        }
+      }
+    }
+  }
 }

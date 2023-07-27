@@ -16,7 +16,6 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
 import Profile from "./pages/Profile";
-import Sidebar from "./components/Sidebar";
 import SearchPage from "./pages/SearchPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -28,7 +27,6 @@ function App() {
       <div className="App">
         <ToastContainer position="top-center" limit={1} />
         <Header cart={cart} />
-        <Sidebar />
         <Routes>
           <Route path="/products/slug/:slug" element={<ProductDetail />} />
           <Route path="/" element={<Home />} />
