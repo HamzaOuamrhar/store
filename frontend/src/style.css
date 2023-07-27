@@ -71,13 +71,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 7px 10%;
   background-color: var(--main-color);
   color: white;
 }
 @media (max-width: 576px) {
   .header {
-    padding: 0 5%;
+    padding: 7px 5%;
   }
 }
 .header a {
@@ -146,4 +146,13 @@
   .header ul li:hover ul.dropdown {
     display: none;
   }
+}
+.header .signin-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
 }/*# sourceMappingURL=style.css.map */

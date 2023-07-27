@@ -75,7 +75,7 @@ function Header({ cart }) {
           </ul>
         ) : (
           <Link to={"/signin"}>
-            <button>Sign In</button>
+            <button className="signin-button">Sign In</button>
           </Link>
         )}
       </>
