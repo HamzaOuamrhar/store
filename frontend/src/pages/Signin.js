@@ -43,7 +43,7 @@ function Signin() {
     }
   }, [userInfo, redirect, navigate]);
   return (
-    <div>
+    <div className="signin">
       <Helmet>
         <title>Sign In</title>
       </Helmet>

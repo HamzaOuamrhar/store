@@ -61,7 +61,7 @@ const data = {
       countInStock: 2,
       brand: "Nike",
       rating: 2.2,
-      numReviews: 0,
+      numReviews: 2,
       description: "High quality slim short of Nike!",
     },
     {

@@ -9,11 +9,17 @@ function Product(props) {
   return (
     <div className="product">
       <Link to={`/products/slug/${product.slug}`}>
-        <div>{product.name}</div>
+        <img src={product.image} alt={product.name} />
       </Link>
-      <div>{product.price}</div>
-      <div>{product.slug}</div>
-      <Rating rating={product.rating} numReviews={product.numReviews} />
+      <div className="product-infos">
+        <Link to={`/products/slug/${product.slug}`}>
+          <div className="product-name">{product.name}</div>
+        </Link>
+        <div className="product-rating">
+          <div className="product-price">${product.price}</div>
+          <Rating rating={product.rating} numReviews={product.numReviews} />
+        </div>
+      </div>
     </div>
   );
 }

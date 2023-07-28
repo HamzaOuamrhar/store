@@ -3,6 +3,7 @@ import axios from "axios";
 import Product from "../components/Product";
 import { Helmet } from "react-helmet-async";
 import Spinner from "../components/Spinner";
+import { Link } from "react-router-dom";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -36,22 +37,22 @@ function Home() {
     fetchData();
   }, []);
   return (
-    <div>
+    <>
       <Helmet>
         <title>Home</title>
       </Helmet>
       <div className="products">
         {loading ? (
-          <Spinner/>
+          <Spinner />
         ) : error ? (
-          <div>error</div>
+          <div>{error}</div>
         ) : (
           products.map((product) => (
             <Product key={product.slug} product={product} />
           ))
         )}
       </div>
-    </div>
+    </>
   );
 }
 export default Home;

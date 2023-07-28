@@ -50,7 +50,7 @@ function Signup() {
     }
   }, [userInfo, redirect, navigate]);
   return (
-    <div>
+    <div className="signup">
       <Helmet>
         <title>Sign Up</title>
       </Helmet>

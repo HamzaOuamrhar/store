@@ -8,6 +8,7 @@
 :root {
   --main-color: rgb(0, 10, 146);
   --second-color: rgb(0, 13, 192);
+  --third-color: crimson;
 }
 
 @mixin breakpoints($point) {
@@ -30,7 +31,7 @@
   font-weight: bold;
 }
 
-.spinner{
+.spinner {
   color: var(--second-color);
   font-size: 3rem;
   position: absolute;
@@ -47,33 +48,33 @@
     font-size: 1rem;
     border: none;
     outline: none;
-    @include breakpoints(small){
+    @include breakpoints(small) {
       display: none;
     }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
       display: none;
     }
   }
   button {
     display: none;
-      @include breakpoints(small){
-        display: block;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        color: white;
-        cursor: pointer;
-        font-size: 1rem;
-      }
-      @include breakpoints(medium){
-        display: block;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        color: white;
-        cursor: pointer;
-        font-size: 1rem;
-      }
+    @include breakpoints(small) {
+      display: block;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    @include breakpoints(medium) {
+      display: block;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
   }
 }
 
@@ -84,7 +85,7 @@
   padding: 7px 10%;
   background-color: var(--main-color);
   color: white;
-  @include breakpoints(small){
+  @include breakpoints(small) {
     padding: 7px 5%;
   }
   a {
@@ -126,28 +127,28 @@
         }
       }
     }
-    li.mobile-icon{
+    li.mobile-icon {
       display: none;
-      @include breakpoints(small){
+      @include breakpoints(small) {
         display: inline-block;
       }
-      @include breakpoints(medium){
+      @include breakpoints(medium) {
         display: inline-block;
       }
     }
     li:hover {
       ul.dropdown {
         display: block;
-        @include breakpoints(small){
+        @include breakpoints(small) {
           display: none;
         }
-        @include breakpoints(medium){
+        @include breakpoints(medium) {
           display: none;
         }
       }
     }
   }
-  .signin-button{
+  .signin-button {
     background-color: transparent;
     color: white;
     border: none;
@@ -155,5 +156,106 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
+  }
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .product {
+    max-width: 300px;
+    max-height: 400px;
+    padding: 10px;
+    a {
+      text-decoration: none;
+    }
+    img {
+      width: 100%;
+      height: 80%;
+    }
+    .product-name {
+      color: black;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .product-infos {
+      padding: 10px;
+    }
+    .product-rating {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .product-price {
+        color: var(--third-color);
+        font-weight: bold;
+      }
+    }
+    .rating i {
+      color: orange;
+    }
+    .rating span {
+      font-weight: bold;
+    }
+  }
+}
+
+.signin, .signup {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include breakpoints(small){
+    width: 80vw;
+  }
+
+  input,
+  button,
+  div {
+    margin-bottom: 15px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--second-color);
+    }
+  }
+
+  div {
+    font-size: 1rem;
+    text-align: center;
+
+    a {
+      color: var(--second-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

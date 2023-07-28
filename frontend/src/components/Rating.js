@@ -3,7 +3,7 @@ import React from "react";
 function Rating(props) {
   const { rating, numReviews, caption } = props;
   return (
-    <span>
+    <span className="rating">
       {rating >= 1 ? (
         <i className="fa-solid fa-star"></i>
       ) : rating >= 0.5 ? (
@@ -42,7 +42,7 @@ function Rating(props) {
       {caption ? (
         <span>{caption}</span>
       ) : (
-        <span>{" " + numReviews + " reviews"}</span>
+        <span>{" " + numReviews + " Reviews"}</span>
       )}
     </span>
   );
