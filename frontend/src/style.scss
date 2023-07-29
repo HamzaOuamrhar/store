@@ -31,13 +31,17 @@
   font-weight: bold;
 }
 
-.spinner {
+i.spinner {
   color: var(--second-color);
   font-size: 3rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+div.spinner{
+  height: 100vh;
 }
 
 .searchbox {
@@ -163,6 +167,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 50px;
   .product {
     max-width: 300px;
     max-height: 400px;
@@ -200,7 +205,8 @@
   }
 }
 
-.signin, .signup {
+.signin,
+.signup {
   max-width: 400px;
   padding: 20px;
   background-color: #f2f2f2;
@@ -214,7 +220,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include breakpoints(small){
+  @include breakpoints(small) {
     width: 80vw;
   }
 
@@ -258,4 +264,103 @@
       }
     }
   }
+}
+
+.product-detail {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+  img {
+    max-width: 400px;
+    margin-right: 2rem;
+  }
+  .product-infos {
+    .product-name,
+    .product-price,
+    .description,
+    .instock,
+    .unavailable {
+      margin-bottom: 10px;
+    }
+    .product-name {
+      font-size: 2.5rem;
+    }
+    .rating i {
+      color: orange;
+    }
+    .rating span {
+      font-weight: bold;
+    }
+    .product-price {
+      margin-top: 10px;
+      color: var(--third-color);
+      font-weight: bold;
+    }
+    .description {
+      background-color: #cde2f5;
+      padding: 10px;
+      max-width: 400px;
+      line-height: 1.5rem;
+    }
+    .instock{
+      background-color: green;
+      width: fit-content;
+      padding: 5px;
+      color: white;
+      border-radius: 5px;
+    }
+    .unavailable{
+      background-color: red;
+      width: fit-content;
+      padding: 5px;
+      color: white;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: var(--main-color);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: var(--second-color);
+      }
+    }
+  
+  }
+}
+
+footer{
+  padding: 40px 10%;
+  background-color: #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    li{
+      margin-bottom: 10px;
+      &:hover:not(.list-title){
+        color: var(--second-color);
+      }
+    }
+    li.list-title{
+      font-weight: bold;
+      color: rgb(75, 75, 75);
+    }
+    a{
+      text-decoration: none;
+      color: rgb(75, 75, 75);
+    }
+  }
+}
+
+.footerfooter{
+  text-align: center;
+  background-color: #d4d4d4;
+  padding: 15px;
 }

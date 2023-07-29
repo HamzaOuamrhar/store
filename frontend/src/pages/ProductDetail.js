@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Spinner from "../components/Spinner";
 import { Store } from "../Store";
+import Rating from "../components/Rating";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -54,26 +55,32 @@ function ProductDetail() {
     navigate("/cart");
   };
   return (
-    <div>
+    <>
       {loading ? (
         <Spinner />
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <div>
+        <div className="product-detail">
           <Helmet>
             <title>{product.name}</title>
           </Helmet>
-          <div>{product.name}</div>
-          {product.countInStock > 0 ? (
-            <div>In Stock</div>
-          ) : (
-            <div>Unavailable</div>
-          )}
-          <button onClick={addToCartHandler}>ADD TO CART</button>
+          <img src={product.image} alt={product.name} />
+          <div className="product-infos">
+            <div className="product-name">{product.name}</div>
+            <Rating rating={product.rating} numReviews={product.numReviews} />
+            <div className="product-price">${product.price}</div>
+            <div className="description">{product.description}</div>
+            {product.countInStock > 0 ? (
+              <div className="instock">In Stock</div>
+            ) : (
+              <div className="unavailable">Unavailable</div>
+            )}
+            <button onClick={addToCartHandler}>ADD TO CART</button>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

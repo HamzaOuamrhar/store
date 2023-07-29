@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs'
+import bcrypt from "bcryptjs";
 
 const data = {
   users: [
@@ -26,7 +26,8 @@ const data = {
       brand: "Nike",
       rating: 4.2,
       numReviews: 8,
-      description: "High quality slim shirt of Nike!",
+      description:
+        "The Nike Pro Dri-FIT Top layers you in lightweight fabric with breathability built into heat zones to keep you cool and dry from warmups through cool downs. Stretchy fabric made with at least 75% recycled polyester fibers lets you move freely.",
     },
     {
       name: "Adidas Slim Shirt",
@@ -58,7 +59,7 @@ const data = {
       category: "Shorts",
       image: "/images/p2.jpg",
       price: 12,
-      countInStock: 2,
+      countInStock: 0,
       brand: "Nike",
       rating: 2.2,
       numReviews: 2,

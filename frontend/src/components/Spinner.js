@@ -2,7 +2,9 @@ import React from 'react'
 
 function Spinner() {
   return (
-    <i className="spinner fa-solid fa-spinner fa-spin"></i>
+    <div className='spinner'>
+      <i className="spinner fa-solid fa-spinner fa-spin"></i>
+    </div>
   )
 }
 

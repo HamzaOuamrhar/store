@@ -18,6 +18,8 @@ import OrderHistory from "./pages/OrderHistory";
 import Profile from "./pages/Profile";
 import SearchPage from "./pages/SearchPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Footer from "./components/Footer";
+import FooterFooter from "./components/FooterFooter";
 
 function App() {
   const { state } = useContext(Store);
@@ -62,6 +64,8 @@ function App() {
             }
           />
         </Routes>
+        <Footer/>
+        <FooterFooter/>
       </div>
     </BrowserRouter>
   );

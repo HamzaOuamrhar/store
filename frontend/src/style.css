@@ -15,13 +15,17 @@
   font-weight: bold;
 }
 
-.spinner {
+i.spinner {
   color: var(--second-color);
   font-size: 3rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+div.spinner {
+  height: 100vh;
 }
 
 .searchbox input {
@@ -162,6 +166,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 50px;
 }
 .products .product {
   max-width: 300px;
@@ -199,7 +204,8 @@
   font-weight: bold;
 }
 
-.signin, .signup {
+.signin,
+.signup {
   max-width: 400px;
   padding: 20px;
   background-color: #f2f2f2;
@@ -214,26 +220,30 @@
   align-items: center;
 }
 @media (max-width: 576px) {
-  .signin, .signup {
+  .signin,
+  .signup {
     width: 80vw;
   }
 }
 .signin input,
 .signin button,
-.signin div, .signup input,
+.signin div,
+.signup input,
 .signup button,
 .signup div {
   margin-bottom: 15px;
 }
 .signin input[type=text],
-.signin input[type=password], .signup input[type=text],
+.signin input[type=password],
+.signup input[type=text],
 .signup input[type=password] {
   padding: 10px;
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
-.signin button, .signup button {
+.signin button,
+.signup button {
   padding: 10px 20px;
   background-color: var(--main-color);
   color: #fff;
@@ -241,17 +251,118 @@
   border-radius: 8px;
   cursor: pointer;
 }
-.signin button:hover, .signup button:hover {
+.signin button:hover,
+.signup button:hover {
   background-color: var(--second-color);
 }
-.signin div, .signup div {
+.signin div,
+.signup div {
   font-size: 1rem;
   text-align: center;
 }
-.signin div a, .signup div a {
+.signin div a,
+.signup div a {
   color: var(--second-color);
   text-decoration: none;
 }
-.signin div a:hover, .signup div a:hover {
+.signin div a:hover,
+.signup div a:hover {
   text-decoration: underline;
+}
+
+.product-detail {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+.product-detail img {
+  max-width: 400px;
+  margin-right: 2rem;
+}
+.product-detail .product-infos .product-name,
+.product-detail .product-infos .product-price,
+.product-detail .product-infos .description,
+.product-detail .product-infos .instock,
+.product-detail .product-infos .unavailable {
+  margin-bottom: 10px;
+}
+.product-detail .product-infos .product-name {
+  font-size: 2.5rem;
+}
+.product-detail .product-infos .rating i {
+  color: orange;
+}
+.product-detail .product-infos .rating span {
+  font-weight: bold;
+}
+.product-detail .product-infos .product-price {
+  margin-top: 10px;
+  color: var(--third-color);
+  font-weight: bold;
+}
+.product-detail .product-infos .description {
+  background-color: #cde2f5;
+  padding: 10px;
+  max-width: 400px;
+  line-height: 1.5rem;
+}
+.product-detail .product-infos .instock {
+  background-color: green;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+}
+.product-detail .product-infos .unavailable {
+  background-color: red;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+}
+.product-detail .product-infos button {
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.product-detail .product-infos button:hover {
+  background-color: var(--second-color);
+}
+
+footer {
+  padding: 40px 10%;
+  background-color: #e6e6e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+footer ul li {
+  margin-bottom: 10px;
+}
+footer ul li:hover:not(.list-title) {
+  color: var(--second-color);
+}
+footer ul li.list-title {
+  font-weight: bold;
+  color: rgb(75, 75, 75);
+}
+footer ul a {
+  text-decoration: none;
+  color: rgb(75, 75, 75);
+}
+
+.footerfooter {
+  text-align: center;
+  background-color: #d4d4d4;
+  padding: 15px;
 }/*# sourceMappingURL=style.css.map */
