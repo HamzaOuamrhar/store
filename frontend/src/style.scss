@@ -40,7 +40,7 @@ i.spinner {
   transform: translate(-50%, -50%);
 }
 
-div.spinner{
+div.spinner {
   height: 100vh;
 }
 
@@ -231,7 +231,8 @@ div.spinner{
   }
 
   input[type="text"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="email"] {
     padding: 10px;
     width: 100%;
     border: 1px solid #ccc;
@@ -302,14 +303,14 @@ div.spinner{
       max-width: 400px;
       line-height: 1.5rem;
     }
-    .instock{
+    .instock {
       background-color: green;
       width: fit-content;
       padding: 5px;
       color: white;
       border-radius: 5px;
     }
-    .unavailable{
+    .unavailable {
       background-color: red;
       width: fit-content;
       padding: 5px;
@@ -323,43 +324,42 @@ div.spinner{
       border: none;
       border-radius: 8px;
       cursor: pointer;
-  
+
       &:hover {
         background-color: var(--second-color);
       }
     }
-  
   }
 }
 
-footer{
+footer {
   padding: 40px 10%;
   background-color: #e6e6e6;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ul{
+  ul {
     display: flex;
     flex-direction: column;
     list-style: none;
-    li{
+    li {
       margin-bottom: 10px;
-      &:hover:not(.list-title){
+      &:hover:not(.list-title) {
         color: var(--second-color);
       }
     }
-    li.list-title{
+    li.list-title {
       font-weight: bold;
       color: rgb(75, 75, 75);
     }
-    a{
+    a {
       text-decoration: none;
       color: rgb(75, 75, 75);
     }
   }
 }
 
-.footerfooter{
+.footerfooter {
   text-align: center;
   background-color: #d4d4d4;
   padding: 15px;

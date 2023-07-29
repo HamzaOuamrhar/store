@@ -235,8 +235,10 @@ div.spinner {
 }
 .signin input[type=text],
 .signin input[type=password],
+.signin input[type=email],
 .signup input[type=text],
-.signup input[type=password] {
+.signup input[type=password],
+.signup input[type=email] {
   padding: 10px;
   width: 100%;
   border: 1px solid #ccc;
