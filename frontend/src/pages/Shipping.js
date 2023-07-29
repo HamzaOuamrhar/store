@@ -41,7 +41,7 @@ function Shipping() {
     }
   }, [userInfo, navigate]);
   return (
-    <>
+    <div className="shipping">
       <Helmet>
         <title>Shipping</title>
       </Helmet>
@@ -85,7 +85,7 @@ function Shipping() {
           Continue
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

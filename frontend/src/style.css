@@ -214,23 +214,27 @@ div.spinner {
 }
 
 .signin,
-.signup {
+.signup,
+.shipping {
+  min-height: 100vh;
+}
+.signin form,
+.signup form,
+.shipping form {
   max-width: 400px;
   padding: 20px;
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   border-radius: 12px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 6% auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (max-width: 576px) {
-  .signin,
-  .signup {
+  .signin form,
+  .signup form,
+  .shipping form {
     width: 80vw;
   }
 }
@@ -239,7 +243,10 @@ div.spinner {
 .signin div,
 .signup input,
 .signup button,
-.signup div {
+.signup div,
+.shipping input,
+.shipping button,
+.shipping div {
   margin-bottom: 15px;
 }
 .signin input[type=text],
@@ -247,14 +254,18 @@ div.spinner {
 .signin input[type=email],
 .signup input[type=text],
 .signup input[type=password],
-.signup input[type=email] {
+.signup input[type=email],
+.shipping input[type=text],
+.shipping input[type=password],
+.shipping input[type=email] {
   padding: 10px;
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 .signin button,
-.signup button {
+.signup button,
+.shipping button {
   padding: 10px 20px;
   background-color: var(--main-color);
   color: #fff;
@@ -263,21 +274,25 @@ div.spinner {
   cursor: pointer;
 }
 .signin button:hover,
-.signup button:hover {
+.signup button:hover,
+.shipping button:hover {
   background-color: var(--second-color);
 }
 .signin div,
-.signup div {
+.signup div,
+.shipping div {
   font-size: 1rem;
   text-align: center;
 }
 .signin div a,
-.signup div a {
+.signup div a,
+.shipping div a {
   color: var(--second-color);
   text-decoration: none;
 }
 .signin div a:hover,
-.signup div a:hover {
+.signup div a:hover,
+.shipping div a:hover {
   text-decoration: underline;
 }
 
