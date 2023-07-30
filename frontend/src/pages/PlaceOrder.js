@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { Store } from "../Store";
 import { useNavigate } from "react-router-dom";
-import Axios from 'axios'
-import {toast} from 'react-toastify'
-import Spinner from '../components/Spinner'
-import {Helmet} from 'react-helmet-async'
+import Axios from "axios";
+import { toast } from "react-toastify";
+import Spinner from "../components/Spinner";
+import { Helmet } from "react-helmet-async";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -37,28 +37,32 @@ function PlaceOrder() {
   const taxPrice = round2(0.15 * itemsPrice);
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
   const placeOrderHandler = async () => {
-    try{
-      dispatch({type: 'CREATE_REQUEST'})
-      const {data} = await Axios.post('/api/orders',{
-        orderItems: cartItems,
-        paymentMethod: paymentMethod,
-        shippingAddress: shippingAddress,
-        itemsPrice: itemsPrice,
-        shippingPrice: shippingPrice,
-        taxPrice: taxPrice,
-        totalPrice: totalPrice
-      }, {
-        headers:{
-          authorization: `Bearer ${userInfo.token}`
+    try {
+      dispatch({ type: "CREATE_REQUEST" });
+      const { data } = await Axios.post(
+        "/api/orders",
+        {
+          orderItems: cartItems,
+          paymentMethod: paymentMethod,
+          shippingAddress: shippingAddress,
+          itemsPrice: itemsPrice,
+          shippingPrice: shippingPrice,
+          taxPrice: taxPrice,
+          totalPrice: totalPrice,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
+          },
         }
-      })
-      localStorage.removeItem(cartItems)
-      dispatch({type: "CREATE_SUCCESS"})
-      ctxDispatch({type: "CART_CLEAR"})
-      navigate(`/order/${data.order._id}`)
-    }catch(err){
-      dispatch({type: "CREATE_FAIL"})
-      toast.error("Order placed with error!")
+      );
+      localStorage.removeItem(cartItems);
+      dispatch({ type: "CREATE_SUCCESS" });
+      ctxDispatch({ type: "CART_CLEAR" });
+      navigate(`/order/${data.order._id}`);
+    } catch (err) {
+      dispatch({ type: "CREATE_FAIL" });
+      toast.error("Order placed with error!");
     }
   };
 
@@ -68,43 +72,62 @@ function PlaceOrder() {
     }
   }, [paymentMethod, navigate]);
   return (
-    <div>
+    <div className="placeorder">
       <Helmet>
         <title>Place Order</title>
       </Helmet>
-      <h1>Shipping</h1>
-      <div>
-        <span>name: {shippingAddress.fullName}</span>
-        <br />
-        <span>
-          Shipping address: {shippingAddress.address}, {shippingAddress.city},{" "}
-          {shippingAddress.postalCode}, {shippingAddress.country}
-        </span>
-        <br />
-        <span>Payment method: {paymentMethod}</span>
-      </div>
-      <hr />
-      <div>
-        {cartItems.map((item) => (
-          <div className="item" key={item._id}>
-            <span>{item.name}</span>
-            <br />
-            <span>quantity: {item.quantity}</span>
-            <br />
-            <span>price: {item.price}</span>
+      <div className="left">
+        <h4>Shipping & Payment</h4>
+        <div className="shipping-infos">
+          <div>
+            <span>Name:</span> {shippingAddress.fullName}
           </div>
-        ))}
+          <div>
+            <span>Shipping address:</span> {shippingAddress.address},{" "}
+            {shippingAddress.city}, {shippingAddress.postalCode},{" "}
+            {shippingAddress.country}
+          </div>
+          <div>
+            <span>Payment method:</span> {paymentMethod}
+          </div>
+        </div>
+        <h4>Items</h4>
+        <div className="items">
+          {cartItems.map((item) => (
+            <div className="item" key={item._id}>
+              <div>
+                <img src={item.image} alt={item.name} />
+                <span>{item.name}</span>
+              </div>
+              <span>{item.quantity}</span>
+              <span className="price">${item.price}</span>
+            </div>
+          ))}
+        </div>
       </div>
-      <hr />
-      <div>
-        <span>Items ${itemsPrice.toFixed(2)}</span> {" / "}
-        <span>Shipping ${shippingPrice.toFixed(2)}</span> {" / "}
-        <span>Tax ${taxPrice.toFixed(2)}</span> {" / "}
-        <span>Total ${totalPrice.toFixed(2)}</span>
-        <br />
-        <button onClick={placeOrderHandler} disabled={cartItems.length === 0}>
-          Place Order
-        </button>
+      <div className="right">
+        <h4>Order Summary</h4>
+        <div className="order-summary">
+          <div>
+            <p>Items</p>
+            <span>${itemsPrice.toFixed(2)}</span>
+          </div>
+          <div>
+            <p>Shipping</p>
+            <span>${shippingPrice.toFixed(2)}</span>
+          </div>
+          <div>
+            <p>Tax</p>
+            <span>${taxPrice.toFixed(2)}</span>
+          </div>
+          <div className="total">
+            <p>Total</p>
+            <span>${totalPrice.toFixed(2)}</span>
+          </div>
+          <button onClick={placeOrderHandler} disabled={cartItems.length === 0}>
+            Place Order
+          </button>
+        </div>
       </div>
       {loading && <Spinner></Spinner>}
     </div>

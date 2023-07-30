@@ -588,4 +588,136 @@ footer ul a {
 }
 .payment form button:hover {
   background-color: var(--second-color);
+}
+
+.preview-order {
+  padding: 0 10%;
+}
+
+.placeorder {
+  min-height: 100vh;
+  padding: 40px 10%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 576px) {
+  .placeorder {
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .placeorder {
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+}
+.placeorder .left {
+  width: 50vw;
+}
+@media (max-width: 576px) {
+  .placeorder .left {
+    width: 80vw;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .placeorder .left {
+    width: 80vw;
+  }
+}
+.placeorder .left h4 {
+  color: var(--main-color);
+  margin-bottom: 15px;
+}
+.placeorder .left .shipping-infos {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.placeorder .left .shipping-infos div {
+  margin-bottom: 10px;
+}
+.placeorder .left .shipping-infos div span {
+  font-weight: bold;
+}
+.placeorder .left .items {
+  border: 1px solid #ccc;
+  padding: 15px;
+}
+@media (max-width: 576px) {
+  .placeorder .left .items {
+    margin-bottom: 15px;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .placeorder .left .items {
+    margin-bottom: 15px;
+  }
+}
+.placeorder .left .items .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.placeorder .left .items .item div {
+  display: flex;
+  align-items: center;
+}
+.placeorder .left .items .item div img {
+  max-width: 80px;
+  margin-right: 10px;
+}
+.placeorder .left .items .item span.price {
+  font-weight: bold;
+  color: var(--second-color);
+}
+.placeorder .right {
+  width: 25vw;
+}
+@media (max-width: 576px) {
+  .placeorder .right {
+    width: 80vw;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .placeorder .right {
+    width: 80vw;
+  }
+}
+.placeorder .right h4 {
+  color: var(--main-color);
+  margin-bottom: 15px;
+}
+.placeorder .right .order-summary {
+  border: 1px solid #ccc;
+  padding: 15px 30px;
+}
+.placeorder .right .order-summary div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.placeorder .right .order-summary div.total {
+  font-weight: bold;
+}
+.placeorder .right .order-summary div.total span {
+  color: var(--second-color);
+}
+.placeorder .right button {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.placeorder .right button:hover {
+  background-color: var(--second-color);
 }/*# sourceMappingURL=style.css.map */
