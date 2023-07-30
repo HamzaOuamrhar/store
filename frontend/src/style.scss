@@ -20,6 +20,15 @@
   border: 1px solid rgb(155, 0, 0);
 }
 
+.success-message {
+  background-color: rgb(106, 255, 114);
+  width: 50vw;
+  padding: 10px;
+  color: rgb(0, 116, 6);
+  margin: 0 auto;
+  border: 1px solid rgb(0, 116, 6);
+}
+
 @mixin breakpoints($point) {
   @if $point == small {
     @media (max-width: 576px) {
@@ -554,11 +563,13 @@ footer {
     flex-direction: column;
     align-items: center;
     font-size: .8rem;
+    justify-content: initial;
   }
   @include breakpoints(medium){
     flex-direction: column;
     align-items: center;
     font-size: .9rem;
+    justify-content: initial;
   }
   .left {
     width: 50vw;
@@ -581,6 +592,9 @@ footer {
         span {
           font-weight: bold;
         }
+      }
+      div.error-message, div.success-message{
+        width: 100%;
       }
     }
     .items {
@@ -632,6 +646,11 @@ footer {
         align-items: center;
         justify-content: space-between;
         margin-bottom: 10px;
+      }
+      div.my-paypal-buttons{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
       }
       div.total{
         font-weight: bold;

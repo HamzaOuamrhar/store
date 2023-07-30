@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -121,53 +122,88 @@ function Order() {
   return loading ? (
     <Spinner></Spinner>
   ) : (
-    <div>
-      <h1>Order {orderId}</h1>
-      <span>{order.shippingAddress.city}</span>
-      {order.isDelivered ? (
-        <span>Delivered at: {order.deliveredAt}</span>
-      ) : (
-        <span>Not delivered</span>
-      )}
-      <strong>Payment: {order.paymentMethod}</strong>
-      {order.isPaid ? (
-        <span>Paid at: {order.paidAt}</span>
-      ) : (
-        <span>Not paid!</span>
-      )}
-      <div className="items">
-        {order.orderItems.map((item) => (
-          <div className="item" key={item._id}>
-            {item.name} <br />
-            {item.quantity} <br />
-            {item.price}
-          </div>
-        ))}
-      </div>
-      <div>
-        <span>Items: {order.itemsPrice}</span>
-        <span>Shipping: {order.shippingPrice}</span>
-        <span>Tax: {order.taxPrice}</span>
-        <span>Total: {order.totalPrice}</span>
-      </div>
-      <div>
-        {!order.isPaid && (
+    <div className="placeorder">
+      <Helmet>
+        <title>Place Order</title>
+      </Helmet>
+      <div className="left">
+        <h4>Shipping & Payment</h4>
+        <div className="shipping-infos">
           <div>
-            {isPending ? (
-              <Spinner />
-            ) : (
-              <div>
-                <PayPalButtons
-                  createOrder={createOrder}
-                  onApprove={onApprove}
-                  onError={onError}
-                ></PayPalButtons>
-              </div>
-            )}
-            {loadingPay && <Spinner />}
+            <span>Name:</span> {order.shippingAddress.fullName}
           </div>
-        )}
+          <div>
+            <span>Shipping address:</span> {order.shippingAddress.address},{" "}
+            {order.shippingAddress.city}, {order.shippingAddress.postalCode},{" "}
+            {order.shippingAddress.country}
+          </div>
+          {order.isDelivered ? (
+            <div className="success-message">Delivered at: {order.deliveredAt}</div>
+          ) : (
+            <div className="error-message">Not delivered</div>
+          )}
+          <div>
+            <span>Payment method:</span> {order.paymentMethod}
+          </div>
+          {order.isPaid ? (
+            <div className="success-message">Paid at: {order.paidAt}</div>
+          ) : (
+            <div className="error-message">Not paid</div>
+          )}
+        </div>
+        <h4>Items</h4>
+        <div className="items">
+          {order.orderItems.map((item) => (
+            <div className="item" key={item._id}>
+              <div>
+                <img src={item.image} alt={item.name} />
+                <span>{item.name}</span>
+              </div>
+              <span>{item.quantity}</span>
+              <span className="price">${item.price}</span>
+            </div>
+          ))}
+        </div>
       </div>
+      <div className="right">
+        <h4>Order Summary</h4>
+        <div className="order-summary">
+          <div>
+            <p>Items</p>
+            <span>${order.itemsPrice.toFixed(2)}</span>
+          </div>
+          <div>
+            <p>Shipping</p>
+            <span>${order.shippingPrice.toFixed(2)}</span>
+          </div>
+          <div>
+            <p>Tax</p>
+            <span>${order.taxPrice.toFixed(2)}</span>
+          </div>
+          <div className="total">
+            <p>Total</p>
+            <span>${order.totalPrice.toFixed(2)}</span>
+          </div>
+          {!order.isPaid && (
+            <>
+              {isPending ? (
+                <Spinner />
+              ) : (
+                <div className="my-paypal-buttons">
+                  <PayPalButtons
+                    className="my-paypal-button"
+                    createOrder={createOrder}
+                    onApprove={onApprove}
+                    onError={onError}
+                  ></PayPalButtons>
+                </div>
+              )}
+              {loadingPay && <Spinner />}
+            </>
+          )}
+        </div>
+      </div>
+      {loading && <Spinner></Spinner>}
     </div>
   );
 }

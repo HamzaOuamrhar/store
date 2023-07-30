@@ -71,7 +71,7 @@ function Cart() {
               Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)} item
               {cartItems.reduce((a, c) => a + c.quantity, 0) === 1
                 ? ""
-                : "s)"}{" "}
+                : "s"})
             </p>
             <p className="price">${cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}</p>
             <button onClick={checkoutHandler}>Proceed to checkout</button>
