@@ -47,14 +47,14 @@ export default function OrderHistoryScreen() {
     fetchData();
   }, [userInfo]);
   return (
-    <div>
+    <div className="order-history">
       <Helmet>
         <title>Order History</title>
       </Helmet>
       {loading ? (
         <Spinner />
       ) : (
-        <table className="table" border={1}>
+        <table>
           <thead>
             <tr>
               <th>ID</th>
@@ -68,11 +68,11 @@ export default function OrderHistoryScreen() {
           <tbody>
             {orders.map((order) => (
               <tr key={order._id}>
-                <td>{order._id}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
-                <td>
+                <td><span>ID: </span>{order._id}</td>
+                <td><span>DATE: </span>{order.createdAt.substring(0, 10)}</td>
+                <td><span>TOTAL: </span>${order.totalPrice.toFixed(2)}</td>
+                <td><span>PAID: </span>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
+                <td><span>DELIVERED: </span>
                   {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)
                     : "No"}

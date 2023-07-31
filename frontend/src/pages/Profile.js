@@ -49,33 +49,36 @@ function Profile() {
     }
   };
   return (
-    <div>
+    <div className="profile">
       <Helmet>
         <title>Profile</title>
       </Helmet>
-      <h1>Profile</h1>
       <form onSubmit={submitHandler}>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          placeholder="Name"
         />
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder="Email"
         />
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           required
+          placeholder="Password"
         />
         <input
           type="password"
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          placeholder="Confirm Password"
         />
         <button type="submit">Update</button>
       </form>

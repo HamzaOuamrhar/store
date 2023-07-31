@@ -225,7 +225,8 @@ div.spinner {
 
 .signin,
 .signup,
-.shipping {
+.shipping,
+.profile {
   min-height: 100vh;
   form {
     max-width: 400px;
@@ -559,24 +560,24 @@ footer {
   padding: 40px 10%;
   display: flex;
   justify-content: space-between;
-  @include breakpoints(small){
+  @include breakpoints(small) {
     flex-direction: column;
     align-items: center;
-    font-size: .8rem;
+    font-size: 0.8rem;
     justify-content: initial;
   }
-  @include breakpoints(medium){
+  @include breakpoints(medium) {
     flex-direction: column;
     align-items: center;
-    font-size: .9rem;
+    font-size: 0.9rem;
     justify-content: initial;
   }
   .left {
     width: 50vw;
-    @include breakpoints(small){
+    @include breakpoints(small) {
       width: 80vw;
     }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
       width: 80vw;
     }
     h4 {
@@ -593,17 +594,18 @@ footer {
           font-weight: bold;
         }
       }
-      div.error-message, div.success-message{
+      div.error-message,
+      div.success-message {
         width: 100%;
       }
     }
     .items {
       border: 1px solid #ccc;
       padding: 15px;
-      @include breakpoints(small){
+      @include breakpoints(small) {
         margin-bottom: 15px;
       }
-      @include breakpoints(medium){
+      @include breakpoints(medium) {
         margin-bottom: 15px;
       }
       .item {
@@ -628,33 +630,33 @@ footer {
   }
   .right {
     width: 25vw;
-    @include breakpoints(small){
+    @include breakpoints(small) {
       width: 80vw;
     }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
       width: 80vw;
     }
-    h4{
+    h4 {
       color: var(--main-color);
       margin-bottom: 15px;
     }
-    .order-summary{
+    .order-summary {
       border: 1px solid #ccc;
       padding: 15px 30px;
-      div{
+      div {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 10px;
       }
-      div.my-paypal-buttons{
+      div.my-paypal-buttons {
         display: flex;
         align-items: center;
         flex-direction: column;
       }
-      div.total{
+      div.total {
         font-weight: bold;
-        span{
+        span {
           color: var(--second-color);
         }
       }
@@ -671,6 +673,74 @@ footer {
       font-size: 1rem;
       &:hover {
         background-color: var(--second-color);
+      }
+    }
+  }
+}
+
+.order-history {
+  min-height: 100vh;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 40px auto;
+
+  thead {
+    background-color: #f2f2f2;
+
+    th {
+      padding: 12px;
+      text-align: left;
+      @include breakpoints(medium){
+        font-size: .7rem;
+      }
+      @include breakpoints(small){
+        display: none;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      td {
+        padding: 12px;
+        @include breakpoints(medium){
+          font-size: .7rem;
+        }
+        @include breakpoints(small){
+          display: grid;
+          grid-template-columns: 15ch auto;
+        }
+        span{
+          display: none;
+          @include breakpoints(small){
+            display: inline;
+            font-weight: bold;
+          }
+        }
+      }
+
+      button {
+        padding: 6px 12px;
+        background-color: var(--main-color);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: var(--second-color);
+        }
+        @include breakpoints(small){
+          width: fit-content;
+        }
       }
     }
   }

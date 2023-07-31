@@ -224,12 +224,14 @@ div.spinner {
 
 .signin,
 .signup,
-.shipping {
+.shipping,
+.profile {
   min-height: 100vh;
 }
 .signin form,
 .signup form,
-.shipping form {
+.shipping form,
+.profile form {
   max-width: 400px;
   padding: 20px;
   background-color: #f2f2f2;
@@ -243,7 +245,8 @@ div.spinner {
 @media (max-width: 576px) {
   .signin form,
   .signup form,
-  .shipping form {
+  .shipping form,
+  .profile form {
     width: 80vw;
   }
 }
@@ -255,7 +258,10 @@ div.spinner {
 .signup div,
 .shipping input,
 .shipping button,
-.shipping div {
+.shipping div,
+.profile input,
+.profile button,
+.profile div {
   margin-bottom: 15px;
 }
 .signin input[type=text],
@@ -266,7 +272,10 @@ div.spinner {
 .signup input[type=email],
 .shipping input[type=text],
 .shipping input[type=password],
-.shipping input[type=email] {
+.shipping input[type=email],
+.profile input[type=text],
+.profile input[type=password],
+.profile input[type=email] {
   padding: 10px;
   width: 100%;
   border: 1px solid #ccc;
@@ -274,7 +283,8 @@ div.spinner {
 }
 .signin button,
 .signup button,
-.shipping button {
+.shipping button,
+.profile button {
   padding: 10px 20px;
   background-color: var(--main-color);
   color: #fff;
@@ -284,24 +294,28 @@ div.spinner {
 }
 .signin button:hover,
 .signup button:hover,
-.shipping button:hover {
+.shipping button:hover,
+.profile button:hover {
   background-color: var(--second-color);
 }
 .signin div,
 .signup div,
-.shipping div {
+.shipping div,
+.profile div {
   font-size: 1rem;
   text-align: center;
 }
 .signin div a,
 .signup div a,
-.shipping div a {
+.shipping div a,
+.profile div a {
   color: var(--second-color);
   text-decoration: none;
 }
 .signin div a:hover,
 .signup div a:hover,
-.shipping div a:hover {
+.shipping div a:hover,
+.profile div a:hover {
   text-decoration: underline;
 }
 
@@ -653,7 +667,8 @@ footer ul a {
 .placeorder .left .shipping-infos div span {
   font-weight: bold;
 }
-.placeorder .left .shipping-infos div.error-message, .placeorder .left .shipping-infos div.success-message {
+.placeorder .left .shipping-infos div.error-message,
+.placeorder .left .shipping-infos div.success-message {
   width: 100%;
 }
 .placeorder .left .items {
@@ -739,4 +754,75 @@ footer ul a {
 }
 .placeorder .right button:hover {
   background-color: var(--second-color);
+}
+
+.order-history {
+  min-height: 100vh;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 40px auto;
+}
+table thead {
+  background-color: #f2f2f2;
+}
+table thead th {
+  padding: 12px;
+  text-align: left;
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  table thead th {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 576px) {
+  table thead th {
+    display: none;
+  }
+}
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+table tbody tr td {
+  padding: 12px;
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  table tbody tr td {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 576px) {
+  table tbody tr td {
+    display: grid;
+    grid-template-columns: 15ch auto;
+  }
+}
+table tbody tr td span {
+  display: none;
+}
+@media (max-width: 576px) {
+  table tbody tr td span {
+    display: inline;
+    font-weight: bold;
+  }
+}
+table tbody tr button {
+  padding: 6px 12px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+table tbody tr button:hover {
+  background-color: var(--second-color);
+}
+@media (max-width: 576px) {
+  table tbody tr button {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }/*# sourceMappingURL=style.css.map */
