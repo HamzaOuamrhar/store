@@ -119,124 +119,132 @@ export default function SearchPage() {
     }category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   };
   return (
-    <div>
+    <div className="search-page">
       <Helmet>
         <title>Search Products</title>
       </Helmet>
-      <div className="department">
-        <h3>Department</h3>
-        <div>
+      <div className="left">
+        <div className="department">
+          <h3>Department</h3>
+          <div>
+            <ul>
+              <li>
+                <Link
+                  className={category === "all" ? "text-bold" : ""}
+                  to={getFilterUrl({ category: "all" })}
+                >
+                  Any
+                </Link>
+              </li>
+              {categories.map((c) => (
+                <li key={c}>
+                  <Link
+                    className={c === category ? "text-bold" : ""}
+                    to={getFilterUrl({ category: c })}
+                  >
+                    {c}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="price">
+          <h3>Price</h3>
           <ul>
             <li>
               <Link
-                className={category === "all" ? "text-bold" : ""}
-                to={getFilterUrl({ category: "all" })}
+                className={price === "all" ? "text-bold" : ""}
+                to={getFilterUrl({ price: "all" })}
               >
                 Any
               </Link>
             </li>
-            {categories.map((c) => (
-              <li key={c}>
+            {prices.map((p) => (
+              <li key={p.value}>
                 <Link
-                  className={c === category ? "text-bold" : ""}
-                  to={getFilterUrl({ category: c })}
+                  to={getFilterUrl({ price: p.value })}
+                  className={p.value === price ? "text-bold" : ""}
                 >
-                  {c}
+                  {p.name}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-      </div>
-      <div className="price">
-        <h3>Price</h3>
-        <ul>
-          <li>
-            <Link
-              className={price === "all" ? "text-bold" : ""}
-              to={getFilterUrl({ price: "all" })}
-            >
-              Any
-            </Link>
-          </li>
-          {prices.map((p) => (
-            <li key={p.value}>
+        <div className="customer-review">
+          <h3>Customer review</h3>
+          <ul>
+            {ratings.map((r) => (
+              <li key={r.name}>
+                <Link
+                  to={getFilterUrl({ rating: r.rating })}
+                  className={`${r.rating}` === `${rating}` ? "text-bold" : ""}
+                >
+                  <Rating caption={" & up"} rating={r.rating}></Rating>
+                </Link>
+              </li>
+            ))}
+            <li>
               <Link
-                to={getFilterUrl({ price: p.value })}
-                className={p.value === price ? "text-bold" : ""}
+                to={getFilterUrl({ rating: "all" })}
+                className={rating === "all" ? "text-bold" : ""}
               >
-                {p.name}
+                <Rating caption={" & up"} rating={0}></Rating>
               </Link>
             </li>
-          ))}
-        </ul>
-      </div>
-      <div className="customer-review">
-        <ul>
-          {ratings.map((r) => (
-            <li key={r.name}>
-              <Link
-                to={getFilterUrl({ rating: r.rating })}
-                className={`${r.rating}` === `${rating}` ? "text-bold" : ""}
-              >
-                <Rating caption={" & up"} rating={r.rating}></Rating>
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              to={getFilterUrl({ rating: "all" })}
-              className={rating === "all" ? "text-bold" : ""}
-            >
-              <Rating caption={" & up"} rating={0}></Rating>
-            </Link>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
       <div>
-        {/* *********************************************************************** */}
-        {/* *********************************************************************** */}
-        {/* *********************************************************************** */}
         {loading ? (
           <Spinner></Spinner>
         ) : error ? (
           <div>{error}</div>
         ) : (
-          <>
-            <div>
-              {countProducts === 0 ? "No" : countProducts} Results
-              {query !== "all" && " : " + query}
-              {category !== "all" && " : " + category}
-              {price !== "all" && " : Price " + price}
-              {rating !== "all" && " : Rating " + rating + " & up"}
-              {query !== "all" ||
-              category !== "all" ||
-              rating !== "all" ||
-              price !== "all" ? (
-                <button onClick={() => navigate("/search")}>
-                  <i className="fas fa-times-circle"></i>
-                </button>
-              ) : null}
-            </div>
-            Sort by{" "}
-            <select
-              value={order}
-              onChange={(e) => {
-                navigate(getFilterUrl({ order: e.target.value }));
-              }}
-            >
-              <option value="newest">Newest Arrivals</option>
-              <option value="lowest">Price: Low to High</option>
-              <option value="highest">Price: High to Low</option>
-              <option value="toprated">Avg. Customer Reviews</option>
-            </select>
-            {products.length === 0 && <div>No Product Found</div>}
-            {products.map((product) => (
-              <div key={product._id}>
-                <Product product={product}></Product>
+          <div className="right">
+            <div className="result-number">
+              <div>
+                {countProducts === 0 ? "No" : countProducts} Results
+                <span className="result-query">
+                {query !== "all" && " : " + query}
+                {category !== "all" && " : " + category}
+                {price !== "all" && " : Price " + price}
+                {rating !== "all" && " : Rating " + rating + " & up"}
+                </span>
+                {query !== "all" ||
+                category !== "all" ||
+                rating !== "all" ||
+                price !== "all" ? (
+                  <button onClick={() => navigate("/search")}>
+                    <i className="fas fa-times-circle"></i>
+                  </button>
+                ) : null}
               </div>
-            ))}
-            <div>
+              <div className="select">
+                Sort by{" "}
+                <select
+                  value={order}
+                  onChange={(e) => {
+                    navigate(getFilterUrl({ order: e.target.value }));
+                  }}
+                >
+                  <option value="newest">Newest Arrivals</option>
+                  <option value="lowest">Price: Low to High</option>
+                  <option value="highest">Price: High to Low</option>
+                  <option value="toprated">Avg. Customer Reviews</option>
+                </select>
+              </div>
+            </div>
+            {products.length === 0 && (
+              <div className="error-message">No Product Found</div>
+            )}
+            <div className="products">
+              {products.map((product) => (
+                <Product key={product._id} product={product}/>
+              ))}
+            </div>
+            {/* <div>
               {[...Array(pages).keys()].map((x) => (
                 <LinkContainer
                   key={x + 1}
@@ -254,8 +262,8 @@ export default function SearchPage() {
                   </button>
                 </LinkContainer>
               ))}
-            </div>
-          </>
+            </div> */}
+          </div>
         )}
       </div>
     </div>

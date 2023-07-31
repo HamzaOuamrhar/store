@@ -186,6 +186,11 @@ div.spinner {
   justify-content: center;
   padding: 50px;
 }
+@media (max-width: 576px) {
+  .products {
+    padding: 10px;
+  }
+}
 .products .product {
   max-width: 300px;
   max-height: 400px;
@@ -824,5 +829,115 @@ table tbody tr button:hover {
   table tbody tr button {
     width: -moz-fit-content;
     width: fit-content;
+  }
+}
+
+.search-page {
+  padding: 40px 10%;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 576px) {
+  .search-page {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .search-page {
+    flex-direction: column;
+  }
+}
+.search-page .error-message {
+  margin-top: 20px;
+}
+.search-page .rating i {
+  color: orange;
+}
+.search-page .rating span {
+  color: orange;
+}
+.search-page h3 {
+  color: var(--second-color);
+  margin-bottom: 15px;
+}
+.search-page ul {
+  list-style: none;
+}
+.search-page ul li {
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+.search-page ul a {
+  text-decoration: none;
+  color: black;
+}
+.search-page .left div {
+  margin-bottom: 20px;
+}
+.search-page .right {
+  width: 60vw;
+}
+@media (max-width: 576px) {
+  .search-page .right {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .search-page .right {
+    width: 80vw;
+  }
+}
+.search-page .right .result-number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 576px) {
+  .search-page .right .result-number {
+    font-size: 0.9rem;
+  }
+}
+.search-page .right .result-number button {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  background-color: #e6e6e6;
+  padding: 5px;
+  cursor: pointer;
+}
+@media (max-width: 576px) {
+  .search-page .right .result-number button {
+    margin-left: 5px;
+    padding: 2px;
+  }
+}
+.search-page .right .result-number div.select select {
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+@media (max-width: 576px) {
+  .search-page .right .result-number div.select select {
+    padding: 2px;
+    font-size: 0.9rem;
+  }
+}
+.search-page .right .result-number div.select select:focus {
+  outline: none;
+  border-color: var(--second-color);
+}
+@media (max-width: 576px) {
+  .search-page .right .result-number span.result-query {
+    display: none;
+  }
+}
+@media (min-width: 577px) and (max-width: 1000px) {
+  .search-page .right .result-number span.result-query {
+    display: none;
   }
 }/*# sourceMappingURL=style.css.map */

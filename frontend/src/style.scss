@@ -186,6 +186,9 @@ div.spinner {
   flex-wrap: wrap;
   justify-content: center;
   padding: 50px;
+  @include breakpoints(small){
+    padding: 10px;
+  }
   .product {
     max-width: 300px;
     max-height: 400px;
@@ -740,6 +743,106 @@ table {
         }
         @include breakpoints(small){
           width: fit-content;
+        }
+      }
+    }
+  }
+}
+
+.search-page{
+  padding: 40px 10%;
+  display: flex;
+  justify-content: space-between;
+  @include breakpoints(small){
+    flex-direction: column;
+    padding: 20px;
+  }
+  @include breakpoints(medium){
+    flex-direction: column;
+  }
+  .error-message{
+    margin-top: 20px;
+  }
+  .rating i {
+    color: orange;
+  }
+  .rating span {
+    color: orange;
+  }
+  h3{
+    color: var(--second-color);
+    margin-bottom: 15px;
+  }
+  ul{
+    list-style: none;
+    li{
+      margin-bottom: 10px;
+      margin-left: 15px;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .left{
+    div{
+      margin-bottom: 20px;
+    }
+  }
+
+  .right{
+    width: 60vw;
+    @include breakpoints(small){
+      width: 100%;
+      margin: 0 auto;
+    }
+    @include breakpoints(medium){
+      width: 80vw;
+    }
+    .result-number{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include breakpoints(small){
+        font-size: .9rem;
+      }
+      button{
+        border: none;
+        outline: none;
+        margin-left: 10px;
+        background-color: #e6e6e6;
+        padding: 5px;
+        cursor: pointer;
+        @include breakpoints(small){
+          margin-left: 5px;
+          padding: 2px;
+        }
+      }
+      div.select{
+        select {
+          padding: 5px;
+          margin-left: 10px;
+          font-size: 1rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          cursor: pointer;
+          @include breakpoints(small){
+            padding: 2px;
+            font-size: .9rem;
+          }
+          &:focus {
+            outline: none;
+            border-color: var(--second-color);
+          }
+        }
+        
+      }
+      span.result-query{
+        @include breakpoints(small){
+          display: none;
+        }
+        @include breakpoints(medium){
+          display: none;
         }
       }
     }
