@@ -1,3 +1,8 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -186,7 +191,7 @@ div.spinner {
   flex-wrap: wrap;
   justify-content: center;
   padding: 50px;
-  @include breakpoints(small){
+  @include breakpoints(small) {
     padding: 10px;
   }
   .product {
@@ -293,36 +298,36 @@ div.spinner {
   display: flex;
   justify-content: center;
   margin: 3rem 0;
-  @include breakpoints(small){
+  @include breakpoints(small) {
     flex-direction: column;
     align-items: center;
   }
-  @include breakpoints(medium){
+  @include breakpoints(medium) {
     flex-direction: column;
     align-items: center;
   }
   img {
     max-width: 400px;
     margin-right: 2rem;
-    @include breakpoints(small){
+    @include breakpoints(small) {
       margin-bottom: 15px;
       margin-right: 0;
       max-width: 300px;
     }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
       margin-bottom: 15px;
       margin-right: 0;
       // max-width: 300px;
     }
   }
-  .product-name-before{
+  .product-name-before {
     display: none;
-    @include breakpoints(small){
+    @include breakpoints(small) {
       display: block;
       font-size: 2.5rem;
       margin-bottom: 15px;
     }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
       display: block;
       font-size: 2.5rem;
       margin-bottom: 15px;
@@ -338,10 +343,10 @@ div.spinner {
     }
     .product-name {
       font-size: 2.5rem;
-      @include breakpoints(small){
+      @include breakpoints(small) {
         display: none;
       }
-      @include breakpoints(medium){
+      @include breakpoints(medium) {
         display: none;
       }
     }
@@ -361,7 +366,7 @@ div.spinner {
       padding: 10px;
       max-width: 400px;
       line-height: 1.5rem;
-      @include breakpoints(small){
+      @include breakpoints(small) {
         max-width: 300px;
       }
       // @include breakpoints(medium){
@@ -739,10 +744,10 @@ table {
     th {
       padding: 12px;
       text-align: left;
-      @include breakpoints(medium){
-        font-size: .7rem;
+      @include breakpoints(medium) {
+        font-size: 0.7rem;
       }
-      @include breakpoints(small){
+      @include breakpoints(small) {
         display: none;
       }
     }
@@ -756,16 +761,16 @@ table {
 
       td {
         padding: 12px;
-        @include breakpoints(medium){
-          font-size: .7rem;
+        @include breakpoints(medium) {
+          font-size: 0.7rem;
         }
-        @include breakpoints(small){
+        @include breakpoints(small) {
           display: grid;
           grid-template-columns: 15ch auto;
         }
-        span{
+        span {
           display: none;
-          @include breakpoints(small){
+          @include breakpoints(small) {
             display: inline;
             font-weight: bold;
           }
@@ -784,7 +789,7 @@ table {
         &:hover {
           background-color: var(--second-color);
         }
-        @include breakpoints(small){
+        @include breakpoints(small) {
           width: fit-content;
         }
       }
@@ -792,18 +797,18 @@ table {
   }
 }
 
-.search-page{
+.search-page {
   padding: 40px 10%;
   display: flex;
   justify-content: space-between;
-  @include breakpoints(small){
+  @include breakpoints(small) {
     flex-direction: column;
     padding: 20px;
   }
-  @include breakpoints(medium){
+  @include breakpoints(medium) {
     flex-direction: column;
   }
-  .error-message{
+  .error-message {
     margin-top: 20px;
   }
   .rating i {
@@ -812,56 +817,56 @@ table {
   .rating span {
     color: orange;
   }
-  h3{
+  h3 {
     color: var(--second-color);
     margin-bottom: 15px;
   }
-  ul{
+  ul {
     list-style: none;
-    li{
+    li {
       margin-bottom: 10px;
       margin-left: 15px;
     }
-    a{
+    a {
       text-decoration: none;
       color: black;
     }
   }
-  .left{
-    div{
+  .left {
+    div {
       margin-bottom: 20px;
     }
   }
 
-  .right{
+  .right {
     width: 60vw;
-    @include breakpoints(small){
+    @include breakpoints(small) {
       width: 100%;
       margin: 0 auto;
     }
-    @include breakpoints(medium){
+    @include breakpoints(medium) {
       width: 80vw;
     }
-    .result-number{
+    .result-number {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      @include breakpoints(small){
-        font-size: .9rem;
+      @include breakpoints(small) {
+        font-size: 0.9rem;
       }
-      button{
+      button {
         border: none;
         outline: none;
         margin-left: 10px;
         background-color: #e6e6e6;
         padding: 5px;
         cursor: pointer;
-        @include breakpoints(small){
+        @include breakpoints(small) {
           margin-left: 5px;
           padding: 2px;
         }
       }
-      div.select{
+      div.select {
         select {
           padding: 5px;
           margin-left: 10px;
@@ -869,22 +874,21 @@ table {
           border: 1px solid #ccc;
           border-radius: 4px;
           cursor: pointer;
-          @include breakpoints(small){
+          @include breakpoints(small) {
             padding: 2px;
-            font-size: .9rem;
+            font-size: 0.9rem;
           }
           &:focus {
             outline: none;
             border-color: var(--second-color);
           }
         }
-        
       }
-      span.result-query{
-        @include breakpoints(small){
+      span.result-query {
+        @include breakpoints(small) {
           display: none;
         }
-        @include breakpoints(medium){
+        @include breakpoints(medium) {
           display: none;
         }
       }
