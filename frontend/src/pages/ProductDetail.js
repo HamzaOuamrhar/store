@@ -65,6 +65,7 @@ function ProductDetail() {
           <Helmet>
             <title>{product.name}</title>
           </Helmet>
+          <div className="product-name-before">{product.name}</div>
           <img src={product.image} alt={product.name} />
           <div className="product-infos">
             <div className="product-name">{product.name}</div>

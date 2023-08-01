@@ -293,9 +293,40 @@ div.spinner {
   display: flex;
   justify-content: center;
   margin: 3rem 0;
+  @include breakpoints(small){
+    flex-direction: column;
+    align-items: center;
+  }
+  @include breakpoints(medium){
+    flex-direction: column;
+    align-items: center;
+  }
   img {
     max-width: 400px;
     margin-right: 2rem;
+    @include breakpoints(small){
+      margin-bottom: 15px;
+      margin-right: 0;
+      max-width: 300px;
+    }
+    @include breakpoints(medium){
+      margin-bottom: 15px;
+      margin-right: 0;
+      // max-width: 300px;
+    }
+  }
+  .product-name-before{
+    display: none;
+    @include breakpoints(small){
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    @include breakpoints(medium){
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
   }
   .product-infos {
     .product-name,
@@ -307,6 +338,12 @@ div.spinner {
     }
     .product-name {
       font-size: 2.5rem;
+      @include breakpoints(small){
+        display: none;
+      }
+      @include breakpoints(medium){
+        display: none;
+      }
     }
     .rating i {
       color: orange;
@@ -324,6 +361,12 @@ div.spinner {
       padding: 10px;
       max-width: 400px;
       line-height: 1.5rem;
+      @include breakpoints(small){
+        max-width: 300px;
+      }
+      // @include breakpoints(medium){
+      //   max-width: 300px;
+      // }
     }
     .instock {
       background-color: green;
